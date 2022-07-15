@@ -11,6 +11,9 @@
 
 <br>
 
+## :construction: 〢 Builder ##
+> Builder is currently not working (if anyones interested in contributing; very simple fix)
+
 ## :dart: 〢 About ##
 
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is used as the CNC
@@ -30,7 +33,7 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 > Anti-Debug
 > Record Mic Audio for 10s
 > Webcam Image / StreamImages
-> All Monitors Screenshot Image /  StreamImages
+> All Monitors Screenshot Image / StreamImages
 > Replace Old Payload With Updated Version
 > Clean Easy To Read Keylogger
 > Geolocate
