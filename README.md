@@ -24,6 +24,52 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 :x: Create custom payload
 
 
+## :gear: 〢 Commands ##
+
+```shell
+> Anti-Debug
+> Record Mic Audio for 10s
+> Webcam Image / StreamImages
+> All Monitors Screenshot Image /  StreamImages
+> Replace Old Payload With Updated Version
+> Clean Easy To Read Keylogger
+> Geolocate
+> Bluescreen PC If RAT Is Stopped (critproc)
+> Grab Discord Tokens
+> Kill All Inactive Sessions
+> Check If RAT Has Administration Perms
+> Block Mouse & Keyboard Input
+> Bluescreen PC
+> Grab Clipboard History
+> Delete Files
+> Disable Anti-Virus
+> Disable Firewall
+> Disable Task Manager
+> Turn All Monitors Off
+> Download Files
+> Force Administration Perm
+> Get Idle Time
+> Grab PC Info
+> List Running Proccesses
+> Log Off User
+> Shutdown PC
+> Restart PC
+> Set Volume To 100%
+> Set Volume To 0%
+> Send Custom Error Message
+> Scan IP For Open Ports
+> Set Persistence For The RAT
+> Remove All Traces Of The RAT (self destruct)
+> Execute Shell Commands
+> Start File
+> Add RAT To Startup
+> Force Stop Running Tasks
+> Show Current Open Window
+> Write Message
+> Open Website
+```
+
+
 ## :white_check_mark: 〢 Requirements ##
 
 Before starting :checkered_flag:, you need to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
@@ -77,4 +123,4 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 〢 License
  Copyright © 2022
-[CookiesKush420](https://github.com/Callumgm).<br />  This project is [MIT](https://github.com/Callumgm/Cookies_RAT/blob/master/LICENCE) licensed.
+[CookiesKush420](https://github.com/Callumgm).<br />  This project is [MIT](https://github.com/Callumgm/Cookies_RAT/blob/master/LICENSE) licensed.
