@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
   <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
-  <img src="https://img.shields.io/badge/version-5.0.0-blue.svg?cacheSeconds=2592000" >
+  <img src="https://img.shields.io/badge/version-5.0.1-blue.svg?cacheSeconds=2592000" >
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" >
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" >
   <img src="https://img.shields.io/github/last-commit/Callumgm/Cookies_RAT">
@@ -11,11 +11,6 @@
 </p>
 
 <br>
-
-## :construction: 〢 Builder ##
-
-> Currently testing builder fix 7:13AM GMT
-
 
 ## :dart: 〢 About ##
 
@@ -93,8 +88,8 @@ Coming soon
 
 ~~overlined~~ = feature got added
 
+- ~~Fix builder~~
 - Clean builder GUI
-- Fix builder
 - Remote import all commands for less detections
 - Be able to customize payload when creating it
 - Add delete all saved passwords & cookies
@@ -107,6 +102,9 @@ Coming soon
 ## :thought_balloon: 〢 ChangeLog
 
 ```diff
+v5.0.1 ⋮ 2022-07-16...
++ fixed builder
+
 v5.0.0 ⋮ 2022-07-16
 + project made opensource and released to github
 
