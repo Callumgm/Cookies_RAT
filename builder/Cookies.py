@@ -91,7 +91,19 @@ if __name__ == "__main__":
     try: from assets.modules import *
     except:
         clear() # Clear screen to fix color issues
-        print(f"{Fore.LIGHTRED_EX}Please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
+        '''
+        Attempt to download each module 1 by 1
+        '''
+        r = requests.get("https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/requirements.txt").text
+        for i in r.splitlines():
+            try:
+                os.system(f"pip install {i}")
+            except:
+                print(f"{Fore.LIGHTRED_EX}Failed to import module{Fore.RESET}{i}")
+                pass
+        
+        clear()
+        print(f"{Fore.LIGHTRED_EX}If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
         input("\n\nPress enter to exit...")
         exit()
     
