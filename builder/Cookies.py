@@ -89,9 +89,9 @@ if __name__ == "__main__":
     Try importing modules
     '''
     try: from assets.modules import *
-    except Exception as e:
+    except:
         clear() # Clear screen to fix color issues
-        print(f"{Fore.LIGHTRED_EX}Please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET} {e}")
+        print(f"{Fore.LIGHTRED_EX}Please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
         input("\n\nPress enter to exit...")
         exit()
     
