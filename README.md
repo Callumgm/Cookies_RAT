@@ -129,13 +129,13 @@ server_id = "DISCORD_SERVER_ID"
 ## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
 - [x] Fix builder
-- [ ]Clean builder GUI
-- [ ]Remote import all commands for less detections
-- [ ]Be able to customize payload when creating it
-- [ ]Add delete all saved passwords & cookies
-- [ ]Add break PC (delete system32)
-- [ ]Add worm function
-- [ ]Create backdoor with only shell (make whole payload remote imported)
+- [ ] Clean builder GUI
+- [ ] Remote import all commands for less detections
+- [ ] Be able to customize payload when creating it
+- [ ] Add delete all saved passwords & cookies
+- [ ] Add break PC (delete system32)
+- [ ] Add worm function
+- [ ] Create backdoor with only shell (make whole payload remote imported)
 
 
 
