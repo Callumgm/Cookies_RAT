@@ -75,6 +75,7 @@ vtdetect_switch = True
 listcheck_switch = True
 anti_debug_switch = True
 
+
 #region Anti Debug
 def block_debugger():
     for proc in psutil.process_iter():
