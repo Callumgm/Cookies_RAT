@@ -14,7 +14,6 @@ def temp():
 def cleanup(filename):
     try:
         os.remove(f'{filename}.spec')
-        os.remove(f'{filename}.py')
         shutil.rmtree('build')
         shutil.rmtree('dist')
     except: pass

