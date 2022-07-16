@@ -12,6 +12,8 @@
 
 <br>
 
+> Builder has just been fixed any bugs make sure to create a issue
+
 ## :dart: 〢 About ##
 
 > Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
