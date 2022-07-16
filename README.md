@@ -12,13 +12,27 @@
 
 <br>
 
-## :dart: 〢 About ##
+## <a id="content"></a>🌐 〢 Content
+
+- [:dart:・About](#about)
+- [:sparkles:・Features](#features)
+- [:gear:・Commands](#commands)
+- [:white_check_mark:・Requirements](#requirements)
+- [:pushpin:・Todo/Enhancements](#enhancements)
+- [:thought_balloon:・ChangeLog](#changelog)
+- [:hammer_and_wrench:・Custom Commands](#customcommands)
+- [👤・Author](#author)
+- [🤝・Contributing](#contributing)
+- [🌟・Show your support](#support)
+- [📝・License](#license)
+
+## <a id="about"></a>:dart: 〢 About ##
 
 > Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
 
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
 
-## :sparkles: 〢 Features ##
+## <a id="features"></a>:sparkles: 〢 Features ##
 
 :heavy_check_mark: Create payload\
 :heavy_check_mark: Create keylogger add on\
@@ -27,7 +41,7 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 :x: Create custom payload
 
 
-## :gear: 〢 Commands ##
+## <a id="commands"></a>:gear: 〢 Commands ##
 
 ```shell
 > Anti-Debug
@@ -73,18 +87,12 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 ```
 
 
-## :white_check_mark: 〢 Requirements ##
+## <a id="requirements"></a>:white_check_mark: 〢 Requirements ##
 
 Before starting :checkered_flag:, you are required to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
 
 
-## :file_folder: 〢 Usage ##
-
-```
-Coming soon 
-```
-
-## :pushpin: 〢 Todo/Enhancements
+## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
 ~~overlined~~ = feature got added
 
@@ -99,7 +107,7 @@ Coming soon
 
 
 
-## :thought_balloon: 〢 ChangeLog
+## <a id="changelog"></a>:thought_balloon: 〢 ChangeLog ##
 
 ```diff
 v5.0.1 ⋮ 2022-07-16...
@@ -124,8 +132,46 @@ v2.0.0 ⋮ 2022-07-02
 - removed shitty bugs
 ```
 
+## <a id="customcommands"></a>:hammer_and_wrench: 〢 Custom Commands ##
 
-## 👤 〢 Author
+```shell
+
+- If your wondering how to add your own commands to the rat here is an example of how to do it.
+  - make sure to add the try except block to the command function to stop all rat crashes
+
+```python
+@slash.slash(name="COMMAND_NAME", description="COMMAND_DESCRIPTION", guild_ids=g)
+async def COMMAND_NAME_command(ctx: SlashContext):
+    if ctx.channel.name == channel_name:
+        try:
+            func()
+            my_embed = discord.Embed(title=f"Command executed", color=0x00FF00)
+            await ctx.send(embed=my_embed)
+        except Exception as e:
+            my_embed = discord.Embed(title=f"Error occured!\n\n{e}", color=0xFF0000)
+            await ctx.send(embed=my_embed)
+```
+
+- Also here are some embed "templates" + colors
+
+```python
+0x00FF00 - Green
+0xFF0000 - Red
+0x3A3636 - Gray
+
+except Exception as e:
+    my_embed = discord.Embed(title=f"Error occured!\n\n{e}", color=0xFF0000)
+    await ctx.send(embed=my_embed)
+
+my_embed = discord.Embed(title=f"Admin privileges required", color=0xFF0000)
+await ctx.send(embed=my_embed)
+
+my_embed = discord.Embed(title=f"Command executed", color=0x00FF00)
+await ctx.send(embed=my_embed)
+
+```
+
+## <a id="author"></a>👤 〢 Author ##
 
  👤 **CookiesKush420**  
 - Website: http://cookiesservices.xyz/  
@@ -133,15 +179,15 @@ v2.0.0 ⋮ 2022-07-02
 - GitHub: [@Callumgm](https://github.com/Callumgm)    
 
 
-## 🤝 〢 Contributing
+## <a id="contributing"></a>🤝 〢 Contributing ##
 Contributions, issues and feature requests are welcome!<br />Feel free to check
 [issues page](https://github.com/Callumgm/Cookies_RAT/issues).  
 
 
-## 🌟 〢 Show your support
+## <a id="support"></a>🌟 〢 Show your support ##
 Give a ⭐️ if this project helped you! 
 
 
-## 📝 〢 License
+## <a id="license"></a>📝 〢 License ##
  Copyright © 2022
 [CookiesKush420](https://github.com/Callumgm).<br />  This project is [MIT](https://github.com/Callumgm/Cookies_RAT/blob/master/LICENSE) licensed.
