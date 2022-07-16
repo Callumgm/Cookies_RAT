@@ -17,7 +17,8 @@
 
 ## :dart: 〢 About ##
 
-Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC
+Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
+Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
 
 ## :sparkles: 〢 Features ##
 
