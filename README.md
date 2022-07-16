@@ -19,6 +19,7 @@
 - [:sparkles:・Features](#features)
 - [:gear:・Commands](#commands)
 - [:white_check_mark:・Requirements](#requirements)
+- [:file_folder:・Getting Started](#gettingstarted)
 - [:pushpin:・Todo/Enhancements](#enhancements)
 - [:thought_balloon:・ChangeLog](#changelog)
 - [:hammer_and_wrench:・Custom Commands](#customcommands)
