@@ -137,7 +137,7 @@ v2.0.0 ⋮ 2022-07-02
 
 ## <a id="customcommands"></a>:hammer_and_wrench: 〢 Custom Commands ##
 
-```shell
+
 
 - If your wondering how to add your own commands to the rat here is an example of how to do it.
   - make sure to add the try except block to the command function to stop all rat crashes
