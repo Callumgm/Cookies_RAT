@@ -83,11 +83,26 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 Before starting :checkered_flag:, you are required to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
 
 
-## :rocket: 〢 Usage ##
+## :file_folder: 〢 Usage ##
 
 ```
 Coming soon 
 ```
+
+## :pushpin: 〢 todo/enhancements
+
+~~overlined~~ = feature got added
+
+- Clean builder GUI
+- Fix builder
+- Remote import all commands for less detections
+- Be able to customize payload when creating it
+- Add delete all saved passwords & cookies
+- Add break PC (delete system32)
+- Add worm function
+- Create backdoor with only shell
+
+
 
 ## :thought_balloon: 〢 ChangeLog
 
