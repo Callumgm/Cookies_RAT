@@ -32,3 +32,4 @@ sounddevice
 scipy
 wifipasswords
 cookies_package
+crypto
