@@ -14,7 +14,7 @@
 
 ## :construction: 〢 Builder ##
 
-> Builder is currently not working (if anyones interested in contributing; very simple fix)
+> Currently testing builder fix 7:13AM GMT
 
 
 ## :dart: 〢 About ##
