@@ -100,7 +100,7 @@ Coming soon
 - Add delete all saved passwords & cookies
 - Add break PC (delete system32)
 - Add worm function
-- Create backdoor with only shell
+- Create backdoor with only shell (make whole payload remote imported)
 
 
 
