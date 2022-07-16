@@ -1,9 +1,13 @@
+import os
+
 '''
 Try importing modules
 '''
+from util.plugins.common import clear
+
 try: 
-    from colorama import Fore
     from util.plugins.common import *
+    from colorama import Fore
     from cookies_package import *
     from time import sleep
 
@@ -11,7 +15,7 @@ try:
     from util.create_payload import CookiesRAT
     from util.create_key_logger import Create_KeyLogger
     from util.create_data_grabber import Create_Data_Grabber
-    
+
     from assets.modules import *
 except:
     clear() # Clear screen to fix color issues
