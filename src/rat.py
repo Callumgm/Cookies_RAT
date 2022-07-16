@@ -1723,7 +1723,6 @@ async def listProccess_command(ctx: SlashContext):
 
 #endregion
 
-
 def token_set(str):
     token = str
     client.run(token)
