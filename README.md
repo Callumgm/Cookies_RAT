@@ -89,7 +89,7 @@ Before starting :checkered_flag:, you are required to have [Python 3.9.7](https:
 Coming soon 
 ```
 
-## :pushpin: 〢 todo/enhancements
+## :pushpin: 〢 Todo/Enhancements
 
 ~~overlined~~ = feature got added
 
