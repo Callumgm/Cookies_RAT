@@ -59,7 +59,7 @@ from requests import get
 import os
 
 
-def tokns(str1, str2, str3)
+def tokns(str1, str2, str3):
     global token, webhook, g
     token = str1
     webhook = str2
