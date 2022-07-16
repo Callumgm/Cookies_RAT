@@ -37,6 +37,8 @@
 - [Current virus total score 3/69](https://www.virustotal.com/gui/file/392fe56181e995dca39c946b062a943214b97735f59897cae4629f29575d56c4?nocache=1)
 
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
+All client file packages and modules are imported directly in Python interpreter's process memory (giving it such a low detection rate)
+<br>
 
 ## <a id="features"></a>:sparkles: 〢 Features ##
 
@@ -126,16 +128,14 @@ server_id = "DISCORD_SERVER_ID"
 
 ## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
-~~overlined~~ = feature got added
-
-- ~~Fix builder~~
-- Clean builder GUI
-- Remote import all commands for less detections
-- Be able to customize payload when creating it
-- Add delete all saved passwords & cookies
-- Add break PC (delete system32)
-- Add worm function
-- Create backdoor with only shell (make whole payload remote imported)
+- [x] Fix builder
+- [ ]Clean builder GUI
+- [ ]Remote import all commands for less detections
+- [ ]Be able to customize payload when creating it
+- [ ]Add delete all saved passwords & cookies
+- [ ]Add break PC (delete system32)
+- [ ]Add worm function
+- [ ]Create backdoor with only shell (make whole payload remote imported)
 
 
 
