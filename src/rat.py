@@ -54,10 +54,13 @@ from requests import get
 
 
 '''
+DISCORD_WEBHOOK_URL
+DISCORD_SERVER_ID
+
 Input information
 '''
-webhook = 'DISCORD_WEBHOOK_URL'
-server_id = "DISCORD_SERVER_ID"
+webhook = 'https://discord.com/api/webhooks/983705982343467069/Ve8Lc7ZhrTO0-ffInHib-bH5Pn8ORTDlmXHHPiHo4dWPxJjE80snVjoPSTsq_kCIRVln'
+server_id = "983370808976089091"
 g = [int(server_id)]
 
 

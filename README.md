@@ -95,6 +95,28 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 Before starting :checkered_flag:, you are required to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
 
 
+## <a id="gettingstarted"></a>:file_folder: 〢 Getting Started ##
+
+### Installation ###
+
+Below is how to setup and create a payload.
+
+1. Download or clone the repository
+
+
+
+
+5. Enter your Discord Bot Token in `payload.py`
+```python
+rat.token_set("DISCORD_TOKEN_HERE")
+```
+
+6. Enter your Discord Server ID & Webhook URL in `rat.py`
+```python
+webhook = 'DISCORD_WEBHOOK_URL'
+server_id = "DISCORD_SERVER_ID"
+```
+
 ## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
 ~~overlined~~ = feature got added
