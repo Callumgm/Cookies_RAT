@@ -64,7 +64,8 @@ Input information
 '''
 token = 'DISCORD_BOT_TOKEN'
 webhook = 'DISCORD_WEBHOOK_URL'
-g = [SERVERID_HERE]
+server_id = "DISCORD_SERVER_ID"
+g = [int(server_id)]
 
 
 '''

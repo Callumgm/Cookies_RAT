@@ -1,6 +1,6 @@
 import os, shutil, requests
 from cookies_package import *
-from util.plugins.common import clear, cleanup, compile, temp
+from util.plugins.common import clear, cleanup, compile
 from colorama import Fore
 
 

