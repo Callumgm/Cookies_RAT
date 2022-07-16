@@ -1,5 +1,6 @@
 <h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
   <img src="https://img.shields.io/badge/version-5.0.0-blue.svg?cacheSeconds=2592000" >
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" >
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" >
