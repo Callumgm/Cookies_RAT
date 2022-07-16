@@ -13,12 +13,15 @@
 <br>
 
 ## :construction: 〢 Builder ##
+
 > Builder is currently not working (if anyones interested in contributing; very simple fix)
+
 
 ## :dart: 〢 About ##
 
+> Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
+
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
-Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
 
 ## :sparkles: 〢 Features ##
 
