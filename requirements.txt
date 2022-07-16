@@ -8,7 +8,6 @@ WMI
 discord
 discord_webhook
 discord-components
-discord-py-interactions
 discord-py-slash-command
 asyncio
 pypiwin32
@@ -33,4 +32,3 @@ sounddevice
 scipy
 wifipasswords
 cookies_package
-crypto
