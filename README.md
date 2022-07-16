@@ -211,9 +211,15 @@ await ctx.send(embed=my_embed)
 ## <a id="author"></a>👤 〢 Author ##
 
  👤 **CookiesKush420**  
+
 - Website: http://cookiesservices.xyz/  
 - Twitter: [@Flashouttt](https://twitter.com/Flashouttt)  
 - GitHub: [@Callumgm](https://github.com/Callumgm)    
+
+ 👤 **6nz** 
+
+- Credits to [@6nz](https://github.com/6nz/) for the anti debug since it does slap.
+
 
 
 ## <a id="contributing"></a>🤝 〢 Contributing ##
