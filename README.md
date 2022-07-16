@@ -12,6 +12,7 @@
 
 <br>
 
+
 ## <a id="content"></a>🌐 〢 Content
 
 - [:dart:・About](#about)
@@ -28,7 +29,9 @@
 
 ## <a id="about"></a>:dart: 〢 About ##
 
-> Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
+> Builder has just been fixed any bugs make sure to create a issue if you find one.
+
+> Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless!
 
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
 
@@ -110,7 +113,7 @@ Before starting :checkered_flag:, you are required to have [Python 3.9.7](https:
 ## <a id="changelog"></a>:thought_balloon: 〢 ChangeLog ##
 
 ```diff
-v5.0.1 ⋮ 2022-07-16...
+v5.0.1 ⋮ 2022-07-16
 + fixed builder
 
 v5.0.0 ⋮ 2022-07-16
