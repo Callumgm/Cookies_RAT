@@ -3,7 +3,7 @@ import os
 def main():
     try:
         try:
-            os.system(f"C:\Users\{os.getlogin()}\AppData\Local\Programs\Python\Python39\python.exe -m pip install --upgrade pip")
+            os.system(f"C:\\Users\\{os.getlogin()}\\AppData\\Local\\Programs\\Python\\Python39\\python.exe -m pip install --upgrade pip")
             os.system("pip install wheel")
         except: pass
 
