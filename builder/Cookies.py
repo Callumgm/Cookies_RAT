@@ -1,9 +1,10 @@
 import os
+try: import requests
+except ImportError: os.system('pip install requests')
 
 '''
 Try importing modules
 '''
-from util.plugins.common import clear
 
 try: 
     from util.plugins.common import *
@@ -18,7 +19,7 @@ try:
 
     from assets.modules import *
 except:
-    clear() # Clear screen to fix color issues
+    os.system('cls') # Clear screen to fix color issues
     '''
     Attempt to download each module 1 by 1
     '''
@@ -27,11 +28,11 @@ except:
         try:
             os.system(f"pip install {i}")
         except:
-            print(f"{Fore.LIGHTRED_EX}Failed to import module{Fore.RESET}{i}")
+            print(f"Failed to import module{i}")
             pass
     
-    clear()
-    print(f"{Fore.LIGHTRED_EX}If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420{Fore.RESET}")
+    os.system('cls')
+    print(f"If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420")
     input("\n\nPress enter to exit...")
     exit()
 
