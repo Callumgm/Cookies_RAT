@@ -46,8 +46,10 @@ from discord_slash import SlashContext, SlashCommand
 from discord_slash.model import ButtonStyle
 from discord_slash.utils.manage_components import create_button, create_actionrow
 
-
-
+global token, webhook, g
+token = ""
+webhook = ""
+g = [420]
 
 
 ## Auto Commands | leave here for now
@@ -1737,7 +1739,6 @@ async def listProccess_command(ctx: SlashContext):
 #endregion
 
 def tokns(str1, str2, str3):
-    global token, webhook, g
     token = str1
     webhook = str2
     server_id = str3
