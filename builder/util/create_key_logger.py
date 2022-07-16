@@ -21,6 +21,6 @@ def Create_KeyLogger():
     except Exception as e:
         print(f'{Fore.LIGHTRED_EX}Error while making exe{Fore.RESET}: {e}')
         cleanup(fileName)
-    else:
-        print(f"\n{Fore.GREEN}Finshed creating keylogger add on{Fore.RESET}\n")
+
+    print(f"\n{Fore.GREEN}Finshed creating keylogger add on{Fore.RESET}\n")
     input(f'{Fore.RESET}[{Fore.YELLOW}>>>{Fore.RESET}] {Fore.CYAN}Enter anything to continue {Fore.RESET}. . .')
