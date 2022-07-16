@@ -59,12 +59,11 @@ from requests import get
 import os
 
 
-'''
-Input information
-'''
-token = 'DISCORD_BOT_TOKEN'
-webhook = 'DISCORD_WEBHOOK_URL'
-server_id = "DISCORD_SERVER_ID"
+def tokns(str1, str2, str3)
+global token, webhook, server_id
+token = str1
+webhook = str2
+server_id = str3
 g = [int(server_id)]
 
 
