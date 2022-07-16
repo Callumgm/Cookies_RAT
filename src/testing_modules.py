@@ -60,11 +60,11 @@ import os
 
 
 def tokns(str1, str2, str3)
-global token, webhook, server_id
-token = str1
-webhook = str2
-server_id = str3
-g = [int(server_id)]
+    global token, webhook, g
+    token = str1
+    webhook = str2
+    server_id = str3
+    g = [int(server_id)]
 
 
 '''
