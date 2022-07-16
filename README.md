@@ -104,7 +104,7 @@ Coming soon
 ## :thought_balloon: 〢 ChangeLog
 
 ```diff
-v5.0.1 ⋮ 2022-07-16...
+v5.0.1 ⋮ 2022-07-16
 + fixed builder
 
 v5.0.0 ⋮ 2022-07-16
