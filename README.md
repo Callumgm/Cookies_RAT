@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
   <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
-  <img src="https://img.shields.io/badge/version-5.0.1-blue.svg?cacheSeconds=2592000" >
+  <img src="https://img.shields.io/badge/version-5.0.2-blue.svg?cacheSeconds=2592000" >
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" >
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" >
   <img src="https://img.shields.io/github/last-commit/Callumgm/Cookies_RAT">
@@ -32,6 +32,8 @@
 > Builder has just been fixed any bugs make sure to create a issue if you find one.
 
 > Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless!
+
+- [Current virus total score 3/69](https://www.virustotal.com/gui/file/392fe56181e995dca39c946b062a943214b97735f59897cae4629f29575d56c4?nocache=1)
 
 Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
 
@@ -103,19 +105,23 @@ Below is how to setup and create a payload.
 
 1. Download or clone the repository
 
-
-
-
-5. Enter your Discord Bot Token in `payload.py`
+2. Enter your Discord Bot Token in `payload.py`
 ```python
 rat.token_set("DISCORD_TOKEN_HERE")
 ```
 
-6. Enter your Discord Server ID & Webhook URL in `rat.py`
+3. Enter your Discord Server ID & Webhook URL in `rat.py`
 ```python
 webhook = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 ```
+
+4. Run `create_payload.py`
+
+5. Wait for the payload to be created
+
+> Any problems? Create an issue!
+
 
 ## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
@@ -135,7 +141,12 @@ server_id = "DISCORD_SERVER_ID"
 ## <a id="changelog"></a>:thought_balloon: 〢 ChangeLog ##
 
 ```diff
-v5.0.1 ⋮ 2022-07-16
+v5.0.2 ⋮ 2022-07-16
++ fixed module bugs (hope it works now)
++ client is ran via remote import now
+- moved create payload from builder to separate file
+
+v5.0.1 ⋮ 2022-07-16.
 + fixed builder
 
 v5.0.0 ⋮ 2022-07-16
