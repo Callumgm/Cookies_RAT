@@ -32,12 +32,12 @@ except:
         except:
             failed = True
             modules.append(i)
-            print(f"Failed to import module{i}")
+            print(f"Failed to install module {i}")
             pass
     
     if failed: 
         os.system('cls')
-        print(f"Seems like {str(modules)} modules failed to import please run the setup.bat again, if this problem persists contact CookiesKush420")
+        print(f"Seems like {str(modules)} modules failed to install please run the setup.bat again, if this problem persists contact CookiesKush420")
         input("\n\nPress enter to exit...")
         exit()
 
