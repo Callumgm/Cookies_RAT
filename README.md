@@ -1,5 +1,6 @@
 <h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
   <img src="https://img.shields.io/badge/version-5.0.0-blue.svg?cacheSeconds=2592000" >
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" >
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" >
@@ -12,11 +13,15 @@
 <br>
 
 ## :construction: 〢 Builder ##
+
 > Builder is currently not working (if anyones interested in contributing; very simple fix)
+
 
 ## :dart: 〢 About ##
 
-Remote Access Tool (rat) built in python made for Educational purposes only, discord is used as the CNC
+> Do not scan the compiled payload with any anti-virus otherwise, it will become detected and rendered useless
+
+Remote Access Tool (rat) built in python made for Educational purposes only, discord is utilized as the CNC <br>
 
 ## :sparkles: 〢 Features ##
 
@@ -75,14 +80,29 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 
 ## :white_check_mark: 〢 Requirements ##
 
-Before starting :checkered_flag:, you need to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
+Before starting :checkered_flag:, you are required to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
 
 
-## :rocket: 〢 Usage ##
+## :file_folder: 〢 Usage ##
 
 ```
 Coming soon 
 ```
+
+## :pushpin: 〢 Todo/Enhancements
+
+~~overlined~~ = feature got added
+
+- Clean builder GUI
+- Fix builder
+- Remote import all commands for less detections
+- Be able to customize payload when creating it
+- Add delete all saved passwords & cookies
+- Add break PC (delete system32)
+- Add worm function
+- Create backdoor with only shell (make whole payload remote imported)
+
+
 
 ## :thought_balloon: 〢 ChangeLog
 
