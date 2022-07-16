@@ -19,6 +19,8 @@ try:
 
     from assets.modules import *
 except:
+    failed = False
+    modules = []
     os.system('cls') # Clear screen to fix color issues
     '''
     Attempt to download each module 1 by 1
@@ -28,13 +30,16 @@ except:
         try:
             os.system(f"pip install {i}")
         except:
+            failed = True
+            modules.append(i)
             print(f"Failed to import module{i}")
             pass
     
-    os.system('cls')
-    print(f"If no modules failed to installed please run the setup.bat again, if this problem persists contact CookiesKush420")
-    input("\n\nPress enter to exit...")
-    exit()
+    if failed: 
+        os.system('cls')
+        print(f"Seems like {str(modules)} modules failed to import please run the setup.bat again, if this problem persists contact CookiesKush420")
+        input("\n\nPress enter to exit...")
+        exit()
 
 
 
