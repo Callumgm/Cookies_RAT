@@ -76,7 +76,7 @@ Remote Access Tool (rat) built in python made for Educational purposes only, dis
 
 ## :white_check_mark: 〢 Requirements ##
 
-Before starting :checkered_flag:, you need to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
+Before starting :checkered_flag:, you are required to have [Python 3.9.7](https://www.python.org/downloads/release/python-397/) installed and [added to path](https://docs.blender.org/manual/en/latest/_images/about_contribute_install_windows_installer.png).
 
 
 ## :rocket: 〢 Usage ##
