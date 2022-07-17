@@ -34,3 +34,4 @@ wifipasswords
 cookies_package
 httpimport
 protobuf
+httpx
