@@ -155,6 +155,7 @@ r = requests.get("DOWNLOAD_URL_HERE", allow_redirects=False)
 - [x] Clean builder GUI
 - [x] Remote import all commands for less detections
 - [x] Create backdoor
+- [ ] Add this [sound](https://www.youtube.com/watch?v=LoJ5flCZR9Q) as a command
 - [ ] Be able to customize payload when creating it
 - [ ] Add delete all saved passwords & cookies
 - [ ] Add break PC (delete system32)
