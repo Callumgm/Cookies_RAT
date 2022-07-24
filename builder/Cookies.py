@@ -113,6 +113,7 @@ def main_menu():
             Create_Crypto_Clipper(btc, eth, mon, ltc)
         else:
             print(f"{Fore.LIGHTRED_EX}One of the crypto adresses providet isn't a valid adress{Fore.RESET}")
+            sleep(1)
 
         main_menu()
 
