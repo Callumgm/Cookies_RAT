@@ -21,7 +21,7 @@
   <p align="center">
     Very reliable remote access trojan
     <br />
-    <a href="https://github.com/Callumgm/Cookies_RAT/"><strong>All Commands »</strong></a>
+    <a href="#commands"><strong>All Commands »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Callumgm/Cookies_RAT/issues">Report Bug</a>
