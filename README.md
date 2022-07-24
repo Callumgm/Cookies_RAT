@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Callumgm/Cookies_RAT">
-    <img src="./logo.png" alt="Logo" width="80" height="80">
+    <img src="./logo.png" alt="Logo" width="200" height="190">
   </a>
 
   <h1 align="center">Cookies Remote Access Trojan</h1>
