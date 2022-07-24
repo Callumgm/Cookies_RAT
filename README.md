@@ -1,4 +1,3 @@
-<h1 align="center">Welcome to cookies remote access tool 👋</h1>
 <p align="center">
   <img src="https://sonarcloud.io/api/project_badges/measure?project=Callumgm_Cookies_RAT&metric=ncloc">
   <img src="https://img.shields.io/badge/version-5.0.4-blue.svg?cacheSeconds=2592000" >
@@ -8,6 +7,29 @@
   <a href="https://twitter.com/Flashouttt" target="_blank">
     <img src="https://img.shields.io/twitter/follow/Flashouttt.svg?style=social">
   </a>
+</p>
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Callumgm/Cookies_RAT">
+    <img src="./logo.jpg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h1 align="center">Cookies Remote Access Trojan</h1>
+
+  <p align="center">
+    Very reliable remote access trojan
+    <br />
+    <a href="https://github.com/Callumgm/Cookies_RAT/"><strong>All Commands »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Callumgm/Cookies_RAT/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Callumgm/Cookies_RAT/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/Callumgm/Cookies_RAT/pulls">Send a Pull Request</a>
+  </p>
 </p>
 
 <br>
