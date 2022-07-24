@@ -22,7 +22,7 @@ image
 Pillow
 requests
 wget
-pyinstaller==4.10
+pyinstaller==5.1
 pymyfile
 maskpass
 keyboard
