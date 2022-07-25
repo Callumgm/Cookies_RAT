@@ -126,6 +126,8 @@ Before starting :checkered_flag:, you are required to have [Python 3.9.7](https:
 
 ### Installation ###
 
+Follow [this](https://scribehow.com/shared/Discord_Workflow__4nEIKZKnQKSX811RlYueXA) guide to setup/create a discord bot
+
 Below is how to setup and create a payload.
 
 1. Fork the repository, make sure to keep the repository name the same.
